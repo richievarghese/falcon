@@ -16,23 +16,13 @@
  * limitations under the License.
  */
 
-package org.apache.falcon.request;
 
-/** Class containing different request keys. */
-public final class RequestKeys {
-    private RequestKeys() {
-        throw new AssertionError("Instantiating utility class...");
-    }
+package org.apache.falcon.regression.userExtensions;
+import org.apache.log4j.Logger;
 
-    public static final String CONTENT_TYPE_HEADER = "Content-Type";
-    public static final String XML_CONTENT_TYPE = "text/xml";
-    public static final String XML_TEXT_TYPE ="text/plain";
+public class CopyExtensionToHDFS {
 
-    public static final String JSON_CONTENT_TYPE = "application/json";
+    private static final Logger LOGGER = Logger.getLogger(CopyExtensionToHDFS.class);
 
-    public static final String AUTH_COOKIE = "hadoop.auth";
-    public static final String AUTH_COOKIE_EQ = AUTH_COOKIE + "=";
-    public static final String COOKIE = "Cookie";
-    public static final String WWW_AUTHENTICATE = "WWW-Authenticate";
-    public static final String NEGOTIATE = "Negotiate";
+
 }

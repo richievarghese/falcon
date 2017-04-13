@@ -41,6 +41,7 @@ import org.apache.falcon.resource.InstancesSummaryResult;
 import org.apache.falcon.resource.TriageResult;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.security.SaslOutputStream;
 import org.apache.hadoop.security.authentication.client.AuthenticationException;
 import org.apache.hive.hcatalog.api.HCatClient;
 import org.apache.hive.hcatalog.common.HCatException;
@@ -343,6 +344,23 @@ public abstract class AbstractEntityHelper {
             url += (colo.isEmpty() ? "?" : "&") + params;
         }
         return Util.sendRequest(createUrl(url), "post", data, user);
+    }
+
+    public ServiceResponse extensionRegister(String params)
+            throws IOException, URISyntaxException, AuthenticationException, InterruptedException{
+        return extensionRegister(null, params);
+    }
+
+    public ServiceResponse extensionRegister(String user, String params)
+            throws IOException, URISyntaxException, AuthenticationException, InterruptedException{
+        LOGGER.info("Registering extension: \n");
+
+        String url = createUrl(URLS.EXTENSION_REGISTER.getValue());
+        if (StringUtils.isNotBlank(params)) {
+            url += (colo.isEmpty() ? "?" : "&") + params;
+        }
+//        System.out.println(createUrl(this.hostname + url));
+        return Util.sendRequest(createUrl(this.hostname + url), "post", user);
     }
 
     public ServiceResponse deleteByName(String entityName, String user)

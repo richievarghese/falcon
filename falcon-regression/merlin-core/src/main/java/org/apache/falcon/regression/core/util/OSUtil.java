@@ -44,6 +44,7 @@ public final class OSUtil {
     public static final String OOZIE_LIB_FOLDER = concat(RESOURCES, "oozieLib");
     public static final String MULTIPLE_ACTION_WORKFLOW = concat(RESOURCES, "MultipleActionWorkflow");
     public static final String PIG_DIR = concat(RESOURCES, "pig");
+    public static final String EXTENSIONS = concat(RESOURCES, "Extensions");
 
 
     public static String concat(String path1, String path2, String... pathParts) {

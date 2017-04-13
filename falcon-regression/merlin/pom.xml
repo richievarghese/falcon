@@ -84,4 +84,31 @@
             <artifactId>log4j</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.apache.falcon.regression</groupId>
+                                    <artifactId>falcon-merlin-core</artifactId>
+                                    <version>${project.version}</version>
+                                    <!--<type>test-jar</type>-->
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${basedir}/src/test/resources/Extensions</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

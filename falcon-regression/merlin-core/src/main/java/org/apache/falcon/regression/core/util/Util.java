@@ -369,7 +369,7 @@ public final class Util {
     }
 
     /**
-     * enums used for instance api.
+     * enums used for instance and extensions api.
      */
     public enum URLS {
         LIST_URL("/api/entities/list"),
@@ -400,7 +400,10 @@ public final class Util {
         INSTANCE_LISTING("/api/instance/listing"),
         INSTANCE_LOGS("/api/instance/logs"),
         INSTANCE_DEPENDENCIES("/api/instance/dependencies"),
-        TOUCH_URL("/api/entities/touch");
+        TOUCH_URL("/api/entities/touch"),
+        EXTENSION_REGISTER("/api/extension/register/extension-example"),
+        EXTENSION_UNREGISTER("/api/extension/unregister/extension-example");
+
 
         private final String url;
 
